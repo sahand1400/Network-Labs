@@ -1,8 +1,8 @@
-\# OSPF Basic Configuration Lab 1 - Multi-Area Redundant Network
+\#OSPF Basic Configuration Lab 1 - Multi-Area Redundant Network
 
 
 
-\## 📋 Lab Overview
+\##Lab Overview
 
 
 
@@ -14,7 +14,7 @@ This lab demonstrates a \*\*multi-area OSPF\*\* design with redundant WAN connec
 
 
 
-\## 🎯 Lab Objectives
+\##Lab Objectives
 
 
 
@@ -46,7 +46,7 @@ This lab demonstrates a \*\*multi-area OSPF\*\* design with redundant WAN connec
 
 
 
-\## 📐 OSPF Design
+\##OSPF Design
 
 
 
@@ -62,7 +62,7 @@ This lab demonstrates a \*\*multi-area OSPF\*\* design with redundant WAN connec
 
 
 
-\## ⚙️ Path Selection Logic
+\##Path Selection Logic
 
 
 
@@ -82,7 +82,7 @@ OSPF uses \*\*cost\*\* to determine the best path. Cost is calculated based on i
 
 
 
-\## ✅ Expected Behavior
+\##Expected Behavior
 
 
 
@@ -106,7 +106,7 @@ OSPF uses \*\*cost\*\* to determine the best path. Cost is calculated based on i
 
 
 
-\## 📁 Lab Files
+\##Lab Files
 
 
 
