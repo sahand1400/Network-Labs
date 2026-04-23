@@ -1,0 +1,53 @@
+=======================================================================
+Router: RTR-HQ-2
+Location: Headquarters
+Role: Core Router(ABR) - Connected to SW-Core,RTR-HQ-1 and  RTR-B2 Branch2
+Create Date: 2026-04-23
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-HQ-2
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ description Link to RTR-HQ-1
+ ip address 192.168.0.10 255.255.255.252
+ no shutdown
+
+interface Ethernet0/2
+ description Link to SW-Core
+ ip address 192.168.0.6 255.255.255.252
+ no shutdown
+
+interface Ethernet1/2
+ description Link to RTR-B1
+ ip address 192.168.2.1 255.255.255.252
+ no shutdown
+
+interface Serial2/1
+ description Link to RTR-B2
+ ip address 192.168.3.1 255.255.255.252
+
+interface Serial2/2
+ description Link to RTR-B2
+ ip address 192.168.4.1 255.255.255.252
+
+!! OSPF Configuration
+router ospf 1
+ router-id 2.2.2.2
+ network 192.168.0.0 0.0.0.255 area 0
+ network 192.168.2.0 0.0.0.255 area 1
+ network 192.168.3.0 0.0.0.255 area 1
+ network 192.168.4.0 0.0.0.255 area 1
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

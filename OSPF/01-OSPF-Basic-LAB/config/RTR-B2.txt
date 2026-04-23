@@ -1,0 +1,43 @@
+=======================================================================
+Router: RTR-B2
+Location: Branches
+Role: Core Router - Connected to  RTR-HQ-2 Headquarter with two link serial
+Create Date: 2026-04-23
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-B2
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ description Link to  Switch LAN SW-B2
+ ip address 172.17.1.1 255.255.0.0
+ no shutdown
+
+interface serial2/1
+ description Link to RTR-HQ-2
+ ip address 192.168.3.2 255.255.255.252
+ no shutdown
+
+interface serial2/2
+ description Link to RTR-HQ-2
+ ip address 192.168.4.2 255.255.255.252
+ no shutdown
+
+!! OSPF Configuration Other Method
+router ospf 1
+ router-id 5.5.5.5
+ network 0.0.0.0 255.255.255.255 area 1
+ passive-interface Ethernet0/0
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf
