@@ -1,44 +1,12 @@
-\# OSPF Basic Configuration Lab 1 - Multi-Area Redundant Network
+# OSPF Basic Configuration Lab 1 - Multi-Area Redundant Network
 
 
 
-\## Lab Overview
+## Lab Overview
 
 
 
-This lab demonstrates a \*\*multi-area OSPF\*\* design with redundant WAN connections between headquarters and branch offices. The goal is to implement path selection based on bandwidth and configure load balancing.
-
-
-
----
-
-
-
-\## Lab Objectives
-
-
-
-\*\* Branch 1 (RTR-B1) \*\*
-
-\- Redundancy Type: Active/Standby
-
-\- Primary Link: 8 Mbps WAN
-
-\- Backup Link: 4 Mbps WAN
-
-\- Traffic Behavior: Traffic uses primary link (lower cost = higher bandwidth)
-
-
-
-\*\* Branch 2 (RTR-B2) \*\*
-
-\- Redundancy Type: Load Balancing
-
-\- Primary Link: 2 Mbps Serial
-
-\- Backup Link: 2 Mbps Serial
-
-\- Traffic Behavior: Traffic distributes across both links (equal cost)
+This lab demonstrates a ** multi-area OSPF ** design with redundant WAN connections between headquarters and branch offices. The goal is to implement path selection based on bandwidth and configure load balancing.
 
 
 
@@ -46,35 +14,31 @@ This lab demonstrates a \*\*multi-area OSPF\*\* design with redundant WAN connec
 
 
 
-\## OSPF Design
+## Lab Objectives
 
 
 
-\- \*\* Area 0 (Backbone): \*\* RTR-HQ-1, RTR-HQ-2, SW-Core
+** Branch 1 (RTR-B1) **
 
-\- \*\* Area 1: \*\* RTR-B1, RTR-B2
+- Redundancy Type: Active/Standby
 
-\- \*\* ABR Routers: \*\* RTR-HQ-1, RTR-HQ-2
+- Primary Link: 8 Mbps WAN
 
+- Backup Link: 4 Mbps WAN
 
-
----
-
-
-
-\## Path Selection Logic
+- Traffic Behavior: Traffic uses primary link (lower cost = higher bandwidth)
 
 
 
-OSPF uses \*\* cost \*\* to determine the best path. Cost is calculated based on interface bandwidth. A lower cost means a better path.
+** Branch 2 (RTR-B2) **
 
+- Redundancy Type: Load Balancing
 
+- Primary Link: 2 Mbps Serial
 
-\*\* Branch 1: \*\* The 8 Mbps link has a lower cost than the 4 Mbps link, so all traffic flows through the primary link. If the primary link fails, traffic automatically switches to the backup link.
+- Backup Link: 2 Mbps Serial
 
-
-
-\*\* Branch 2: \*\* Both serial links have the same bandwidth (2 Mbps), so they have equal cost. OSPF performs \*\*load balancing\*\* across both links.
+- Traffic Behavior: Traffic distributes across both links (equal cost)
 
 
 
@@ -82,23 +46,15 @@ OSPF uses \*\* cost \*\* to determine the best path. Cost is calculated based on
 
 
 
-\## Expected Behavior
+## OSPF Design
 
 
 
-\*\* When primary link on Branch 1 is up: \*\* All traffic uses the 8 Mbps path.
+- ** Area 0 (Backbone): ** RTR-HQ-1, RTR-HQ-2, SW-Core
 
+- ** Area 1: ** RTR-B1, RTR-B2
 
-
-\*\* When primary link on Branch 1 fails: \*\* Traffic automatically switches to the 4 Mbps backup path.
-
-
-
-\*\* When both links on Branch 2 are up: \*\* Traffic load balances across both serial links.
-
-
-
-\*\* When one link on Branch 2 fails: \*\* Traffic continues via the remaining link.
+- ** ABR Routers: ** RTR-HQ-1, RTR-HQ-2
 
 
 
@@ -106,15 +62,59 @@ OSPF uses \*\* cost \*\* to determine the best path. Cost is calculated based on
 
 
 
-\## Lab Files
+## Path Selection Logic
 
 
 
-\- \*\* configs/ \*\* → Running configurations for all routers
+OSPF uses ** cost ** to determine the best path. Cost is calculated based on interface bandwidth. A lower cost means a better path.
 
-\- \*\* verification/ \*\* → Command outputs with analysis
 
-\- \*\* eve-ng-export/ \*\* → EVE-NG lab export file
 
-\- \*\* troubleshooting/ \*\* → Common issues and solutions
+** Branch 1: ** The 8 Mbps link has a lower cost than the 4 Mbps link, so all traffic flows through the primary link. If the primary link fails, traffic automatically switches to the backup link.
+
+
+
+** Branch 2: ** Both serial links have the same bandwidth (2 Mbps), so they have equal cost. OSPF performs **load balancing** across both links.
+
+
+
+---
+
+
+
+## Expected Behavior
+
+
+
+** When primary link on Branch 1 is up: ** All traffic uses the 8 Mbps path.
+
+
+
+** When primary link on Branch 1 fails: ** Traffic automatically switches to the 4 Mbps backup path.
+
+
+
+** When both links on Branch 2 are up: ** Traffic load balances across both serial links.
+
+
+
+** When one link on Branch 2 fails: ** Traffic continues via the remaining link.
+
+
+
+---
+
+
+
+## Lab Files
+
+
+
+- ** configs/ ** → Running configurations for all routers
+
+- ** verification/ ** → Command outputs with analysis
+
+- ** eve-ng-export/ ** → EVE-NG lab export file
+
+- ** troubleshooting/ ** → Common issues and solutions
 
