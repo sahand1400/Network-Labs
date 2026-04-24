@@ -103,8 +103,18 @@ OSPF uses ** cost ** to determine the best path. Cost is calculated based on int
 
 
 ---
+## Note: Change Refernce-bandwidth Cost=[Refernce-bandwidth/Interface-Bandwidth]
+## Defaulr value Refernce-bandwidth is 100,000,000
 
+```cisco
+ Router(config)#router ospf 1
+ Router(config-router)#auto-cost reference-bandwidth 10,000
 
+ Router# show ip ospf
+  
+  Reference bandwidth unit is 10000 mbps
+
+```
 
 ## Lab Files
 
