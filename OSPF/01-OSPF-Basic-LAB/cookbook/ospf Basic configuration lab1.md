@@ -1,9 +1,10 @@
-#This is cookbook for Lab ospf Basic configuration lab1
+# This is cookbook for Lab ospf Basic configuration lab1
 <div dir="rtl">
 
-##میتوان مستقیماً  متریک را در اینترفیس ها تنظیم کرد 
+## میتوان مستقیماً  متریک را در اینترفیس ها تنظیم کرد 
 ##  ابتدا پهنای باندی که به صورت دستی رو ی اینترفیس ها تنطیم کرده ایم را برمیداریم سپس با تنظیم دستی متریک انتخاب مسیر انجام گرفته و برای سابت های سرور ها مسیر با متریک کمتر انتخاب شده است
 </div>
+
 ```cisco
 
 RTR-B1(config)#interface ethernet 1/1
@@ -15,9 +16,11 @@ RTR-B1(config-if)#no bandwidth
 RTR-B1(config-if)#ip ospf cost 200
 
 ```
+
 <div dir="rtl">
 ##  حالا با دستور میتوان کاست هر اینترفیس را مشاهده کرد نکته: پهنای باند پیشفرض پورت های اترنت 10 مگ می باشد  
 </div>
+
 ```cisco
 
 RTR-B1#sh ip ospf interface ethernet 1/1
@@ -32,11 +35,9 @@ Ethernet1/2 is up, line protocol is up
 
 ```
 # Redistribute
-<div dir="rtl">
-## میشن  Redistributeهم STATIC  میشن حتی روت های EXTERNAL OSPF  میرن تبدیل به روت ospf  به دنیای EIGRP باشن وقتی روت های ospf که این روت ها بیان تو ospf کرد تو Redistribute را EIGRP  و بالعکس روت های EIGRP  کرد و آورد تو Redistribute  را ospf  می‏ توان روت های 
 
-##  راه اندازی کنیم به همین دلیل ارتباط این دو روتر با استاتیک روت استOSPF وصل بوده و در این روتر نمی توانیم روتینگ پروتکل RTR-B1اگر تصور کنیم روتری به این روتر 
-## مثلا من وص شدم به سازمانی که تو اون سازمان نمیتوتم روتیتگ پروتکل رآن کنم 
+<div dir="rtl">
+## میتوان روت های OSPF را Redistribute کرد و آورد تو EIGRP و بالعکس روت های 
 </div>
 ```cisco
 
