@@ -37,8 +37,8 @@ Ethernet1/2 is up, line protocol is up
 # Redistribute
 
 <div dir="rtl">
- ##میتوان روت های OSPF را Redistribute کرد و آورد تو EIGRP و بالعکس روت های 
-میتوان روت های OSPF را Redistribute کرد و آورد تو EIGRP و بالعکس روت های ##
+## میتوان روت های OSPF را Redistribute کرد و آورد تو EIGRP و بالعکس روت های 
+##میتوان روت های OSPF را Redistribute کرد و آورد تو EIGRP و بالعکس روت های
 </div>
 ```cisco
 
