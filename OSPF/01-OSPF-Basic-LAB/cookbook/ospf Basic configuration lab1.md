@@ -18,7 +18,7 @@ RTR-B1(config-if)#ip ospf cost 200
 
 <div dir="rtl">
 
-##  حالا با دستور میتوان کاست هر اینترفیس را مشاهده کرد نکته: پهنای باند پیشفرض پورت های اترنت 10 مگ می باشد  
+## حالا با دستور میتوان کاست هر اینترفیس را مشاهده کرد نکته: پهنای باند پیشفرض پورت های اترنت 10 مگ می باشد  
 </div>
 
 ```cisco
@@ -51,8 +51,10 @@ S        100.100.100.0 is directly connected, Null0
 
 ```
 <div dir="rtl">
+
 ## حالا روترهای دیگر باید این استاتیک روت من را یاد بگیرند پس این روت استاتیک را وارد دنیای ospf میکنیم.
 </div>
+
 ```cisco
 RTR-B1(config)#router ospf 1
 RTR-B1(config-router)#redistribute static subnets
@@ -69,7 +71,9 @@ RTR-B1(config-router)#redistribute static subnets
 RTR-B2#show ip route
 
 O E2     100.100.100.0 [110/20] via 192.168.4.1, 00:08:47, Serial2/2
-                       [110/20] via 192.168.3.1, 00:08:47, Serial2/1
+      
+                 [110/20] via 192.168.3.1, 00:08:47, Serial2/1
+				 
 ```
 
 <div dir="rtl">
@@ -97,6 +101,7 @@ RTR-B1(config-router)#redistribute static metric 50 metric-type 1
 <div dir="rtl">
 
 # تغییر تایمرهای پروتکل OSPF
+
 ## Hello هر 10 ثانیه یکبار ارسال می شودHOLD Time ها برابر 40 ثانیه است میتوان این مقدار را کمتر کنیم که خرابی را سریعتر تشخیص داده می شودتغییر در داخل اینترفیس ها انجام میشود و در لینک بکاپ تغییر تایمر را لازم نداریم 
 
 </div>
@@ -128,7 +133,8 @@ RTR-HQ-1(config-if)#ip ospf dead-interval 10
 
 ```
 
-#Authentication
+# Authentication
+
 <div dir="rtl">
 
 ## روترها توی روتینگ پروتکل همدیگر راAuth میکنند. روترها وقتی به همدیگر هلو مسیج میدن داخلش هش پسورد را بزاره و چک کند که پسورد هم یکسان باشه تا رابطه همسایگی شکل بگیرد و دو مدل داریم یکی روش clear Text و دیگریMD5.
