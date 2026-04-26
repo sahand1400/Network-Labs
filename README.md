@@ -58,7 +58,7 @@ ccnp-labs/
 ├── cookbook/                             # Quick reference commands
 │
 └── templates/                            # Config and topology templates
-
+```
 ## 🤝 Contributing
 
 If you have a new lab scenario or improvement:
