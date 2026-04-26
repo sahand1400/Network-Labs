@@ -58,3 +58,31 @@ ccnp-labs/
 ├── cookbook/                             # Quick reference commands
 │
 └── templates/                            # Config and topology templates
+
+## 🤝 Contributing
+
+If you have a new lab scenario or improvement:
+
+1. **Fork** this repository
+2. Create a **new branch** for your changes
+3. Submit a **Pull Request**
+
+---
+
+## 📞 Contact
+
+- **Telegram:** [@Prof_lotfi](https://t.me/Prof_lotfi)
+- **LinkedIn:** [Sahand.Lotfi](https://linkedin.com/in/sahand.lotfi)
+- **Email:** [sahand.lot@gmail.com](mailto:sahand.lot@gmail.com)
+
+---
+
+<div align="center">
+
+**Good luck on your CCNP journey!**
+
+[⬆ Back to Top](#ccnp-enterprise-labs-collection-encor--enarsi)
+
+⭐ Star this repository if you find it helpful!
+
+</div>
