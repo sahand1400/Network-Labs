@@ -1,0 +1,62 @@
+==============================================
+Switch: SW-Core
+Location: Headquarters-Data Center
+Role: Distribution Switch  for Server Farm - Connected to RTR-HQ-1,RTR-HQ-1 And Trunk to Switch LAN SW-SRV
+Create Date: 2026-04-23
+==============================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname SW-Core
+
+!! Interface Trunk
+interface Ethernet0/0
+ description Trunk to SW-SRV
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+
+!! SVI(Switch Virtual Interface) for inter-VLAN Routing
+!! This is the gateway for servers
+interface vlan10
+ description Gateway for SRV-A
+ ip address 10.1.1.1 255.255.255.0
+ no shutdown
+
+interface vlan20
+ description Gateway for SRV-B
+ ip address 10.2.2.1 255.255.255.0
+ no shutdown
+
+!! Interface IP Addresses
+interface Ethernet0/1
+ description Link to RTR-HQ-1
+ ip address 192.168.0.1 255.255.255.252
+ no shutdown
+
+interface Ethernet0/2
+ description Link to RTR-HQ-2
+ ip address 192.168.0.5 255.255.255.252
+ no shutdown
+
+!! Enable IP Routing
+ ip routing
+
+!! OSPF Configuration
+router ospf 1
+ router-id 3.3.3.3
+ network 192.168.0.0 0.0.0.255 area 0
+ network 10.0.0.0 0.255.255.255 area 0
+ passive-interface Vlan 10
+ passive-interface Vlan 20
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip route
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

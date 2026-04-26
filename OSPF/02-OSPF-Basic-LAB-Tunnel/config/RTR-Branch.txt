@@ -1,0 +1,46 @@
+=======================================================================
+Router: RTR-Branch
+Location: Branches
+Role: Core Router - Connected to RTR-HQ-1 and  RTR-HQ-2 Headquarter
+Create Date: 2026-04-26
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-Branch
+
+interface Tunnel1
+ bandwidth 8000
+ ip address 192.168.1.2 255.255.255.252
+ tunnel source 10.0.3.2
+ tunnel destination 10.0.1.2
+!
+interface Tunnel2
+ bandwidth 4000
+ ip address 192.168.2.2 255.255.255.252
+ tunnel source 10.0.3.2
+ tunnel destination 10.0.2.2
+!
+!! Interface IP Addresses
+interface Ethernet0/0
+ description Link to  Switch SW-Branch
+ ip address 172.16.1.1 255.255.0.0
+ no shutdown
+
+!! OSPF Configuration 
+router ospf 1
+ router-id 4.4.4.4
+ network 172.16.0.0 0.0.255.255 area 1
+ networf 192.168.0.0 0.0.255.255 area 1
+ passive-interface Ethernet0/0
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

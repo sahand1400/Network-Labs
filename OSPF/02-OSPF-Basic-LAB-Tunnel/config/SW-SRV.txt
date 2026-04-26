@@ -1,0 +1,60 @@
+=======================================================================
+Switch: SW-SRV
+Location: Headquarter
+Role: Layer2 switch for server Farm - Connected to  SW-Core and LAN SRV
+VLANs: VLAN 10 , VLAN 20
+Create Date: 2026-04-23
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname SW-SRV
+
+!! Create VLANs
+Vlan 10
+ name SRV-A
+!
+Vlan 20
+ name SRV-B
+!! Create Interface Trunk
+interface Ethernet0/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ 
+!! Configure Access Ports For Servers
+!! SRV-A1 and SRV-A2 in VLAN 10
+interface Ethernet1/1
+ description Connection to SRV-A1 (vlan10)
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface Ethernet1/2
+ description Connection to SRV-A1 (vlan10)
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+!! SRV-B1 and SRV-B2 in VLAN 20
+
+interface Ethernet2/1
+ description Connection to SRV-B1 (vlan20)
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+
+interface Ethernet2/2
+ description Connection to SRV-B2 (vlan20)
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show vlan brief
+! show interface status
+! show interface trunk
+! show ip interface brief
+! show running-config interface vlan10
