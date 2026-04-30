@@ -1,0 +1,36 @@
+=======================================================================
+Router: RTR-B2
+Location: Branche2
+Role: Core Router - Connected to Layer 2 WAN Full Mesh
+Create Date: 2026-04-29
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-B1
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ ip address 172.17.1.1 255.255.0.0
+ no shutdown
+!
+interface Ethernet1/2
+ ip address 192.168.10.12 255.255.255.240
+ ip ospf network point-to-multipoint
+
+!
+!! OSPF Configuration 
+router ospf 1
+  network 0.0.0.0 255.255.255.255 area 0
+  passive-interface Ethernet0/0
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

@@ -1,0 +1,51 @@
+=======================================================================
+Router: RTR-HQ
+Location: Headquarter
+Role: Core Router - Connected to DMVPN Fhase2 
+Create Date: 2026-04-30
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-HQ
+
+interface Tunnel0
+ ip address 192.168.0.1 255.255.255.0
+ no ip redirects
+ ip nhrp authentication MYSECRET
+ ip nhrp map multicast dynamic
+ ip nhrp network-id 1
+ ip ospf network broadcast
+ tunnel source 10.0.0.2
+ tunnel mode gre multipoint
+!
+
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ ip address 10.20.30.1 255.255.255.0
+ no shutdown
+!
+interface Ethernet1/0
+ ip address 10.0.0.2 255.255.255.252
+!
+
+!! OSPF Configuration 
+router ospf 1
+ passive-interface Ethernet0/0
+ network 10.20.30.0 0.0.0.255 area 0
+ network 192.168.0.0 0.0.0.255 area 0
+!
+ip route 10.1.1.0 255.255.255.252 10.0.0.1
+ip route 10.2.2.0 255.255.255.252 10.0.0.1
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

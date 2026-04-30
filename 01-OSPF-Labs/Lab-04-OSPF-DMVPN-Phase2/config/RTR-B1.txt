@@ -1,0 +1,54 @@
+=======================================================================
+Router: RTR-B1
+Location: Branche1
+Role: Core Router - Connected to to DMVPN Fhase2
+Create Date: 2026-04-30
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-B1
+!
+interface Tunnel0
+ ip address 192.168.0.11 255.255.255.0
+ no ip redirects
+ ip nhrp authentication MYSECRET
+ ip nhrp map 192.168.0.1 10.0.0.2
+ ip nhrp map multicast 10.0.0.2
+ ip nhrp network-id 1
+ ip nhrp nhs 192.168.0.1
+ ip ospf network broadcast
+ ip ospf priority 0
+ tunnel source 10.1.1.2
+ tunnel mode gre multipoint
+!
+
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ ip address 172.16.1.1 255.255.0.0
+ no shutdown
+!
+interface Ethernet1/1
+ ip address 10.1.1.2 255.255.255.252
+!
+
+!! OSPF Configuration 
+router ospf 1
+ passive-interface Ethernet0/0
+ network 172.16.0.0 0.0.255.255 area 0
+ network 192.168.0.0 0.0.0.255 area 0
+!
+ip route 10.0.0.0 255.255.255.252 10.1.1.1
+ip route 10.2.2.0 255.255.255.252 10.1.1.1
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf
