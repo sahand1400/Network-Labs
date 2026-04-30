@@ -4,7 +4,7 @@
 
 ### در این LAB ما از یک WAN لایه 2 استفاده کرده ایم در ISP سویچ هایی مثلاً WPLS یا مترواترنت قرار گرفته و این ابر مخابرات WAN لایه 2 است و فول مش بوده و میخواهیم OSPF را هاندازی کنیم و ببینیم کی DR و BDR شده است.
 ### DR و BDR در داخل اینترفیس های روتر اتفاق می افتد نه کل روتر، یعنی روتر میتواند در یک دستش DR شده باشد و در اون یکی دستش BDR شده و به یک ابر مخابراتی دیگه وصل شده باشد.
-
+### اگر در این ابر مخابرات روترها فول مش همدیگر را می بینند ما در اینجا نیاز به DR و BDR داریم پس میرویم سراغ نتورک تایپ هایی که Boradcast اند.
 ---
 
 
@@ -80,12 +80,55 @@ Ethernet1/3 is up, line protocol is up
 
 ## OSPF Area Design
 
-| Location | Area | Routers |
-|----------|------|---------|
-| Headquarters | Area 0 (Backbone) | RTR-HQ-1, RTR-HQ-2 |
-| Branch | Area 1 | RTR-BRANCH |
+| روتر    | روتر آیدی | وضعیت |
+|--------|--------|---------|
+| RTR-HQ | 192.168.10.10| DROTHER |
+| RTR-B1 | 192.168.10.11| DROTHER |
+| RTR-B2 | 192.168.10.12| BDR |
+| RTR-B3 | 192.168.10.13| DR |
 
-**ABR Routers:** RTR-HQ-1 and RTR-HQ-2 (connected to both Area 0 and Area 1 via tunnels)
+**DR با همه در وضعیت Full همسایه می شود** 
+```cisco
+
+RTR-B3#sh ip os neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+192.168.10.10     1   FULL/DROTHER    00:00:39    192.168.10.10   Ethernet1/3
+192.168.10.11     1   FULL/DROTHER    00:00:35    192.168.10.11   Ethernet1/3
+192.168.10.12     1   FULL/BDR        00:00:36    192.168.10.12   Ethernet1/3
+
+RTR-HQ#show ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+192.168.10.11     1   2WAY/DROTHER    00:00:36    192.168.10.11   Ethernet1/0
+192.168.10.12     1   FULL/BDR        00:00:30    192.168.10.12   Ethernet1/0
+192.168.10.13     1   FULL/DR         00:00:35    192.168.10.13   Ethernet1/0
+
+```
+** DROther ها با DR و BDR همسایه میشود و با هم همسایه نمی شوند ** 
+### برای اینکه این وضعیت را تغییر دهیم و RTR-HQ را DR کنیم اول بای پرایورتی RTR-HQ را افزایش بدهیم بعد روترهایی که وضعیتشان DR بعد است را دستور clear بزنیم تا پرایورتی HQ اعمال شود
+
+```cisco
+
+RTR-HQ(config)#interface ethernet 1/0
+RTR-HQ(config-if)#ip ospf priority 10
+RTR-HQ(config-if)#exit
+
+RTR-B3#clear ip ospf process
+Reset ALL OSPF processes? [no]: yes
+
+RTR-B2#clear ip ospf process
+Reset ALL OSPF processes? [no]: yes
+
+RTR-HQ#show ip ospf interface ethernet 1/0
+  Transmit Delay is 1 sec, State DR, Priority 10
+  
+RTR-HQ#sh ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+192.168.10.11     1   FULL/DROTHER    00:00:37    192.168.10.11   Ethernet1/0
+192.168.10.12     1   FULL/DROTHER    00:00:35    192.168.10.12   Ethernet1/0
+192.168.10.13     1   FULL/BDR        00:00:34    192.168.10.13   Ethernet1/0
 
 ---
 
