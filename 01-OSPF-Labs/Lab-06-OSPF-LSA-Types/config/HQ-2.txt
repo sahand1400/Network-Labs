@@ -1,0 +1,43 @@
+=======================================================================
+Router: HQ-2
+Location: Headquarter
+Role: Core Router  
+Create Date: 2026-04-31
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname HQ-2
+!
+!! Interface IP Addresses
+ interface FastEthernet0/0
+ ip address 1.0.0.2 255.255.255.252
+ duplex full
+!
+interface Serial2/2
+ ip address 1.2.2.1 255.255.255.252
+ encapsulation ppp
+ serial restart-delay 0
+!
+interface Serial2/4
+ ip address 1.4.4.1 255.255.255.252
+ encapsulation ppp
+ serial restart-delay 0
+!
+!
+!! OSPF Configuration 
+router ospf 1
+ network 1.0.0.2 0.0.0.0 area 0
+ network 1.2.2.1 0.0.0.0 area 2
+ network 1.4.4.1 0.0.0.0 area 4
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

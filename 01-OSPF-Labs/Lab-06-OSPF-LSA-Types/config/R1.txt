@@ -1,0 +1,38 @@
+=======================================================================
+Router: R1
+Location: Branche1
+Role: Core Router 
+Create Date: 2026-04-31
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname R1
+!
+
+!! Interface IP Addresses
+interface FastEthernet0/0
+ ip address 10.1.1.1 255.255.255.0
+ duplex full
+ no keepalive
+!
+interface Serial2/1
+ ip address 1.1.1.2 255.255.255.252
+ encapsulation ppp
+ serial restart-delay 0
+!
+!! OSPF Configuration 
+router ospf 1
+ network 1.1.1.2 0.0.0.0 area 1
+ network 10.1.1.1 0.0.0.0 area 1
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf
