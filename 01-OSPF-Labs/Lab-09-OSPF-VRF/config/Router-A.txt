@@ -1,0 +1,65 @@
+=======================================================================
+Router: Router-A
+Location: VRF LAN-A
+Role:  Router  vrf LAN-A nd vrf LAN-B
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname Router-A
+!
+vrf definition LAN-A
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition LAN-B
+ !
+ address-family ipv4
+ exit-address-family
+!
+
+
+!! Interface IP Addresses
+!
+interface Ethernet0/0.16
+ encapsulation dot1Q 16
+ vrf forwarding LAN-A
+ ip address 192.168.16.1 255.255.255.252
+!
+interface Ethernet0/0.17
+ encapsulation dot1Q 17
+ vrf forwarding LAN-B
+ ip address 192.168.17.1 255.255.255.252
+!
+interface Ethernet1/1
+ vrf forwarding LAN-A
+ ip address 172.16.1.1 255.255.255.0
+!
+interface Ethernet1/2
+ vrf forwarding LAN-B
+ ip address 172.17.1.1 255.255.255.0
+ no cdp enable
+!
+
+
+!! OSPF Configuration 
+router ospf 1
+ passive-interface Ethernet0/0
+ network 172.16.0.0 0.0.255.255 area 0
+ network 192.168.0.0 0.0.0.255 area 0
+!
+ip route 10.0.0.0 255.255.255.252 10.1.1.1
+ip route 10.2.2.0 255.255.255.252 10.1.1.1
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

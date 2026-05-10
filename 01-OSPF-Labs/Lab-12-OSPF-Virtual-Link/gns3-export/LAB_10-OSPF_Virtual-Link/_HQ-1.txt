@@ -1,0 +1,24 @@
+en
+conf t
+hostname HQ-1
+
+inter fa 0/0
+ip address 1.0.0.1 255.255.255.252
+no shut
+
+inter ser 2/1
+ip address 1.1.1.1 255.255.255.252
+encap ppp
+no shut
+
+router ospf 1
+router-id 1.1.1.1
+network 1.0.0.1 0.0.0.0 area 0
+network 1.1.1.1 0.0.0.0 area 1
+exi
+
+exi
+
+clear ip ospf proc
+y
+

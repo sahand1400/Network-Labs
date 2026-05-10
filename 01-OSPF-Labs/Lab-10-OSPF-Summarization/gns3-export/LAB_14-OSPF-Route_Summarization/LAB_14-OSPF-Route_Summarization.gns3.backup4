@@ -1,0 +1,1378 @@
+{
+    "auto_start": false,
+    "name": "LAB_14-OSPF-Route_Summarization",
+    "project_id": "e450d6ea-46a1-4803-a930-1efc1fd259b4",
+    "revision": 4,
+    "topology": {
+        "ellipses": [
+            {
+                "border_color": "#ff0000",
+                "border_width": 1,
+                "height": 85.0,
+                "width": 312.0,
+                "x": -98.0,
+                "y": -44.0,
+                "z": -1.0
+            },
+            {
+                "border_color": "#0000ff",
+                "border_width": 1,
+                "height": 266.0,
+                "width": 211.0,
+                "x": -239.0,
+                "y": -281.0,
+                "z": -2.0
+            },
+            {
+                "border_color": "#0000ff",
+                "border_width": 1,
+                "height": 266.0,
+                "width": 210.0,
+                "x": 135.0,
+                "y": -285.0,
+                "z": -1.0
+            },
+            {
+                "border_color": "#0000ff",
+                "border_width": 1,
+                "height": 266.0,
+                "width": 205.0,
+                "x": -233.0,
+                "y": 8.0,
+                "z": -1.0
+            },
+            {
+                "border_color": "#0000ff",
+                "border_width": 1,
+                "height": 266.0,
+                "width": 211.0,
+                "x": 148.0,
+                "y": 6.0,
+                "z": -1.0
+            },
+            {
+                "border_color": "#0000ff",
+                "border_width": 1,
+                "height": 101.0,
+                "width": 405.0,
+                "x": -557.0,
+                "y": -53.0,
+                "z": -1.0
+            }
+        ],
+        "links": [
+            {
+                "description": "Link from HQ-1 port FastEthernet0/0 to HQ-2 port FastEthernet0/0",
+                "destination_node_id": 2,
+                "destination_port_id": 14,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": -7.0,
+                    "y": 22.0
+                },
+                "id": 1,
+                "source_node_id": 1,
+                "source_port_id": 3,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f0/0",
+                    "x": 73.0,
+                    "y": 22.0
+                }
+            },
+            {
+                "description": "Link from R2 port Serial2/2 to HQ-2 port Serial2/2",
+                "destination_node_id": 2,
+                "destination_port_id": 17,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/2",
+                    "x": 33.0,
+                    "y": 22.0
+                },
+                "id": 2,
+                "source_node_id": 4,
+                "source_port_id": 39,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/2",
+                    "x": 33.0,
+                    "y": 22.0
+                }
+            },
+            {
+                "description": "Link from R3 port Serial2/3 to HQ-1 port Serial2/3",
+                "destination_node_id": 1,
+                "destination_port_id": 7,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/3",
+                    "x": 33.0,
+                    "y": 22.0
+                },
+                "id": 3,
+                "source_node_id": 5,
+                "source_port_id": 51,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/3",
+                    "x": 33.0,
+                    "y": 22.0
+                }
+            },
+            {
+                "description": "Link from R1 port Serial2/1 to HQ-1 port Serial2/1",
+                "destination_node_id": 1,
+                "destination_port_id": 5,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/1",
+                    "x": 33.0,
+                    "y": 22.0
+                },
+                "id": 4,
+                "source_node_id": 3,
+                "source_port_id": 27,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/1",
+                    "x": 33.0,
+                    "y": 22.0
+                }
+            },
+            {
+                "description": "Link from R4 port Serial2/4 to HQ-2 port Serial2/4",
+                "destination_node_id": 2,
+                "destination_port_id": 19,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/4",
+                    "x": 33.0,
+                    "y": 22.0
+                },
+                "id": 5,
+                "source_node_id": 6,
+                "source_port_id": 63,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "s2/4",
+                    "x": 33.0,
+                    "y": 22.0
+                }
+            },
+            {
+                "description": "Link from HQ-1 port FastEthernet1/1 to R10 port FastEthernet1/1",
+                "destination_node_id": 7,
+                "destination_port_id": 68,
+                "destination_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/1",
+                    "x": 73.0,
+                    "y": 22.0
+                },
+                "id": 6,
+                "source_node_id": 1,
+                "source_port_id": 2,
+                "source_port_label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "f1/1",
+                    "x": -7.0,
+                    "y": 22.0
+                }
+            }
+        ],
+        "nodes": [
+            {
+                "description": "Router c7200",
+                "dynamips_id": 1,
+                "id": 1,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "HQ-1",
+                    "x": 16.0,
+                    "y": 18.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 1,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to R10 on port FastEthernet1/1",
+                        "id": 2,
+                        "link_id": 6,
+                        "name": "FastEthernet1/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 4,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to R1 on port Serial2/1",
+                        "id": 5,
+                        "link_id": 4,
+                        "name": "Serial2/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 6,
+                        "name": "Serial2/2",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to R3 on port Serial2/3",
+                        "id": 7,
+                        "link_id": 3,
+                        "name": "Serial2/3",
+                        "nio": "NIO_UDP",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 8,
+                        "name": "Serial2/4",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 9,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 10,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 11,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to HQ-2 on port FastEthernet0/0",
+                        "id": 3,
+                        "link_id": 1,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2001,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca01.1a24.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "HQ-1",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i1_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "0e367fb6-2036-4163-9e68-6c54886dec3c",
+                "x": -155.0,
+                "y": -23.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 2,
+                "id": 2,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "HQ-2",
+                    "x": 14.0,
+                    "y": 18.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 12,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 13,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 15,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 16,
+                        "name": "Serial2/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to R2 on port Serial2/2",
+                        "id": 17,
+                        "link_id": 2,
+                        "name": "Serial2/2",
+                        "nio": "NIO_UDP",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 18,
+                        "name": "Serial2/3",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to R4 on port Serial2/4",
+                        "id": 19,
+                        "link_id": 5,
+                        "name": "Serial2/4",
+                        "nio": "NIO_UDP",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 20,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 21,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 22,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "description": "connected to HQ-1 on port FastEthernet0/0",
+                        "id": 14,
+                        "link_id": 1,
+                        "name": "FastEthernet0/0",
+                        "nio": "NIO_UDP",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2002,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca02.090c.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "HQ-2",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i2_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "7c5b393b-bd3b-472d-a1df-cc54ebd51f9c",
+                "x": 199.0,
+                "y": -23.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 3,
+                "id": 3,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "R1",
+                    "x": 20.5,
+                    "y": 20.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 23,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 24,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 26,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to HQ-1 on port Serial2/1",
+                        "id": 27,
+                        "link_id": 4,
+                        "name": "Serial2/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 28,
+                        "name": "Serial2/2",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 29,
+                        "name": "Serial2/3",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 30,
+                        "name": "Serial2/4",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 31,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 32,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 33,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 25,
+                        "name": "FastEthernet0/0",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2003,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca03.05d4.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "R1",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i3_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "a94bba1d-6280-495f-a7c8-a41b6baeaf8d",
+                "x": -155.0,
+                "y": -216.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 4,
+                "id": 4,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "R2",
+                    "x": 22.5,
+                    "y": 20.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 34,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 35,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 37,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 38,
+                        "name": "Serial2/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to HQ-2 on port Serial2/2",
+                        "id": 39,
+                        "link_id": 2,
+                        "name": "Serial2/2",
+                        "nio": "NIO_UDP",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 40,
+                        "name": "Serial2/3",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 41,
+                        "name": "Serial2/4",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 42,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 43,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 44,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 36,
+                        "name": "FastEthernet0/0",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2004,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca04.1be4.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "R2",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i4_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "7e40bbdd-be28-4c3f-96b7-8ea26a05d55c",
+                "x": 199.0,
+                "y": -211.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 5,
+                "id": 5,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "R3",
+                    "x": 20.5,
+                    "y": 19.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 45,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 46,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 48,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 49,
+                        "name": "Serial2/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 50,
+                        "name": "Serial2/2",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to HQ-1 on port Serial2/3",
+                        "id": 51,
+                        "link_id": 3,
+                        "name": "Serial2/3",
+                        "nio": "NIO_UDP",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 52,
+                        "name": "Serial2/4",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 53,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 54,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 55,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 47,
+                        "name": "FastEthernet0/0",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2005,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca05.1964.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "R3",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i5_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "a89bcbfe-a2cd-4a84-bbb1-3b5141bbad3f",
+                "x": -156.0,
+                "y": 174.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 6,
+                "id": 6,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "R4",
+                    "x": 23.5,
+                    "y": 21.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 56,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "id": 57,
+                        "name": "FastEthernet1/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 59,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 60,
+                        "name": "Serial2/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 61,
+                        "name": "Serial2/2",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 62,
+                        "name": "Serial2/3",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "description": "connected to HQ-2 on port Serial2/4",
+                        "id": 63,
+                        "link_id": 5,
+                        "name": "Serial2/4",
+                        "nio": "NIO_UDP",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 64,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 65,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 66,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 58,
+                        "name": "FastEthernet0/0",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2006,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca06.15e0.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "R4",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i6_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "e9657b87-afa1-4ce9-b35d-d49929cf4eda",
+                "x": 199.0,
+                "y": 174.0
+            },
+            {
+                "description": "Router c7200",
+                "dynamips_id": 7,
+                "id": 7,
+                "label": {
+                    "color": "#ff000000",
+                    "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                    "text": "R10",
+                    "x": 16.5,
+                    "y": 20.0
+                },
+                "ports": [
+                    {
+                        "adapter_number": 1,
+                        "id": 67,
+                        "name": "FastEthernet1/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 1,
+                        "description": "connected to HQ-1 on port FastEthernet1/1",
+                        "id": 68,
+                        "link_id": 6,
+                        "name": "FastEthernet1/1",
+                        "nio": "NIO_UDP",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 70,
+                        "name": "Serial2/0",
+                        "port_number": 0
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 71,
+                        "name": "Serial2/1",
+                        "port_number": 1
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 72,
+                        "name": "Serial2/2",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 73,
+                        "name": "Serial2/3",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 74,
+                        "name": "Serial2/4",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 75,
+                        "name": "Serial2/5",
+                        "port_number": 5
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 76,
+                        "name": "Serial2/6",
+                        "port_number": 6
+                    },
+                    {
+                        "adapter_number": 2,
+                        "id": 77,
+                        "name": "Serial2/7",
+                        "port_number": 7
+                    },
+                    {
+                        "adapter_number": 0,
+                        "id": 69,
+                        "name": "FastEthernet0/0",
+                        "port_number": 0
+                    }
+                ],
+                "properties": {
+                    "auto_delete_disks": true,
+                    "clock_divisor": 4,
+                    "console": 2007,
+                    "disk0": 0,
+                    "disk1": 0,
+                    "exec_area": 64,
+                    "idlemax": 500,
+                    "idlepc": "0x6318687c",
+                    "idlesleep": 30,
+                    "image": "c7200-advipservicesk9-mz.152-4.S5.image",
+                    "image_md5sum": "cbbbea66a253f1dac0fcf81274dc778d",
+                    "mac_addr": "ca07.1bac.0000",
+                    "midplane": "vxr",
+                    "mmap": true,
+                    "name": "R10",
+                    "npe": "npe-400",
+                    "nvram": 512,
+                    "platform": "c7200",
+                    "power_supplies": [
+                        1,
+                        1
+                    ],
+                    "ram": 256,
+                    "sensors": [
+                        22,
+                        22,
+                        22,
+                        22
+                    ],
+                    "slot0": "C7200-IO-FE",
+                    "slot1": "PA-2FE-TX",
+                    "slot2": "PA-8T",
+                    "sparsemem": true,
+                    "startup_config": "configs/i7_startup-config.cfg",
+                    "system_id": "FTX0945W0MY"
+                },
+                "server_id": 1,
+                "type": "C7200",
+                "vm_id": "255e4ea9-46b4-45f8-b99d-749c20c458d7",
+                "x": -458.0,
+                "y": -23.0
+            }
+        ],
+        "notes": [
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0",
+                "x": 155.0,
+                "y": 14.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0",
+                "x": -89.0,
+                "y": 16.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa1/1",
+                "x": -199.0,
+                "y": 15.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa1/1",
+                "x": -391.0,
+                "y": 16.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/1",
+                "x": -120.0,
+                "y": -61.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/1",
+                "x": -112.0,
+                "y": -156.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/2",
+                "x": 194.0,
+                "y": -157.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/2",
+                "x": 185.0,
+                "y": -61.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/3",
+                "x": -117.0,
+                "y": 36.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/3",
+                "x": -122.0,
+                "y": 135.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/4",
+                "x": 194.0,
+                "y": 31.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "s2/4",
+                "x": 186.0,
+                "y": 136.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.0.0.1/30",
+                "x": -90.0,
+                "y": 1.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.0.0.2/30",
+                "x": 124.0,
+                "y": 0.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.10.10.2/30",
+                "x": -392.0,
+                "y": 1.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.10.10.1/30",
+                "x": -246.0,
+                "y": 1.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.1.1.1/30",
+                "x": -121.0,
+                "y": -46.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.1.1.2/30",
+                "x": -115.0,
+                "y": -171.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.2.2.2/30",
+                "x": 158.0,
+                "y": -171.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.2.2.1/30",
+                "x": 150.0,
+                "y": -46.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.3.3.1/30",
+                "x": -118.0,
+                "y": 50.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.3.3.2/30",
+                "x": -123.0,
+                "y": 151.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.4.4.1/30",
+                "x": 159.0,
+                "y": 44.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "1.4.4.2/30",
+                "x": 150.0,
+                "y": 152.0
+            },
+            {
+                "color": "#ffff0000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 0",
+                "x": 37.0,
+                "y": -41.0
+            },
+            {
+                "color": "#ff0000ff",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 10",
+                "x": -370.0,
+                "y": -54.0
+            },
+            {
+                "color": "#ff0000ff",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 1",
+                "x": -234.0,
+                "y": -158.0
+            },
+            {
+                "color": "#ff0000ff",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 2",
+                "x": 291.0,
+                "y": -158.0
+            },
+            {
+                "color": "#ff0000ff",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 3",
+                "x": -227.0,
+                "y": 136.0
+            },
+            {
+                "color": "#ff0000ff",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "area 4",
+                "x": 304.0,
+                "y": 135.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0=10.1.1.1/24",
+                "x": -200.0,
+                "y": -241.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0=10.2.2.1/24",
+                "x": 170.0,
+                "y": -237.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0=10.3.3.1/24",
+                "x": -195.0,
+                "y": 217.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0=10.4.4.1/24",
+                "x": 186.0,
+                "y": 217.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "10.10.10.1/24",
+                "x": -558.0,
+                "y": -14.0
+            },
+            {
+                "color": "#ff000000",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "fa0/0",
+                "x": -502.0,
+                "y": -28.0
+            },
+            {
+                "color": "#ff005500",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "HQ-1 loopback interfaces\n---------------------------\nlo 1 = 172.20.10.1/24\nlo 2 = 172.20.20.1/24\nlo 3 = 172.20.30.1/24\nlo 4 = 172.20.40.1/24\nlo 5 = 172.20.50.1/24\nlo 6 = 172.20.60.1/24\nlo 7 = 172.20.70.1/24\nlo 8 = 172.20.80.1/24",
+                "x": -418.0,
+                "y": -238.0
+            },
+            {
+                "color": "#ff005500",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "R2 loopback interfaces\n-------------------------\nlo 1 = 172.30.10.1/24\nlo 2 = 172.30.20.1/24\nlo 3 = 172.30.30.1/24\nlo 4 = 172.30.40.1/24\nlo 5 = 172.30.50.1/24\nlo 6 = 172.30.60.1/24\nlo 7 = 172.30.70.1/24\nlo 8 = 172.30.80.1/24",
+                "x": -16.0,
+                "y": -255.0
+            },
+            {
+                "color": "#ffaa007f",
+                "font": "TypeWriter,10,-1,5,75,0,0,0,0,0",
+                "text": "R3 redistribute static routes\n-------------------------------\n  33.33.10.0 / 24\n  33.33.20.0 / 24\n  33.33.30.0 / 24\n  33.33.40.0 / 24\n  33.33.50.0 / 24\n  33.33.60.0 / 24 \n  33.33.70.0 / 24\n  33.33.80.0 / 24",
+                "x": -431.0,
+                "y": 76.0
+            }
+        ],
+        "servers": [
+            {
+                "host": "127.0.0.1",
+                "id": 1,
+                "local": true,
+                "port": 8000,
+                "protocol": "http",
+                "ram_limit": 0,
+                "vm": false
+            }
+        ]
+    },
+    "type": "topology",
+    "version": "1.4.6"
+}

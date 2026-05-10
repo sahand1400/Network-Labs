@@ -1,0 +1,23 @@
+en
+conf t
+hostname R4
+
+inter ser 2/4
+encap ppp
+ip address 1.4.4.2 255.255.255.252
+no shut
+
+inter fa 0/0
+ip address 10.4.4.1 255.255.255.0
+no shut
+no keep
+
+exi
+
+router ospf 1
+net 10.4.4.1 0.0.0.0 area 4
+net 1.4.4.2 0.0.0.0 area 4
+
+exi
+exi
+

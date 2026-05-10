@@ -1,0 +1,46 @@
+HQ-1 IPv4 OSPF 
+--------------
+router ospf 1
+network 192.168.1.1 0.0.0.0 area 0
+network 3.3.3.1 0.0.0.0 area 0
+network 1.1.1.1 0.0.0.0 area 1
+passive-interface fa0/0
+
+inter fa 1/1
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+
+inter s 2/1
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+
+HQ-2 IPv4 OSPF
+--------------
+router ospf 1
+network 192.168.2.1 0.0.0.0 area 0
+network 3.3.3.2 0.0.0.0 area 0
+network 2.2.2.1 0.0.0.0 area 1
+passive-interface fa0/0
+
+inter fa 1/1
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+
+inter s 2/2
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+
+Branch IPv4 OSPF
+----------------
+router ospf 1
+network 0.0.0.0 255.255.255.255 area 1
+passive-interface fa0/0
+
+inter s 2/1
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+
+inter s 2/2
+ip ospf hello-interval 60
+ip ospf dead-interval 180
+

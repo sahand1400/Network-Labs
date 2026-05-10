@@ -1,0 +1,36 @@
+=======================================================================
+Router: R10
+Location: Branch
+Role: Area10 
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname R10
+!
+!! Interface IP Addresses
+!
+interface FastEthernet0/0
+ ip address 10.10.10.1 255.255.255.0
+ no keepalive
+!
+interface FastEthernet1/1
+ ip address 1.10.10.2 255.255.255.252
+!
+!! OSPF Configuration 
+!
+router ospf 1
+ network 1.10.10.2 0.0.0.0 area 10
+ network 10.10.10.1 0.0.0.0 area 10
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

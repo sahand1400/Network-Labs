@@ -1,0 +1,28 @@
+en
+conf t
+hostname Branch
+
+ipv6 unicast-routing
+
+inter ser 2/1
+encap ppp
+ipv6 address FDBB:1::2/64
+ip address 1.1.1.2 255.255.255.252
+no shut
+exi
+
+inter ser 2/2
+encap ppp
+ipv6 address FDBB:2::2/64
+ip address 2.2.2.2 255.255.255.252
+no shut
+exi
+
+inter fa 0/0
+ipv6 address FDAA:1111::1/64
+ip address 192.168.10.1 255.255.255.0
+no shut
+no keepalive
+exi
+
+exi

@@ -1,0 +1,28 @@
+en
+conf t
+hostname HQ-2
+
+inter ser 2/2
+encap ppp
+ip address 1.2.2.1 255.255.255.252
+no shut
+
+inter ser 2/4
+encap ppp
+ip address 1.4.4.1 255.255.255.252
+no shut
+
+inter fa 0/0
+ip address 1.0.0.2 255.255.255.252
+no shut
+
+exi
+
+router ospf 1
+net 1.0.0.2 0.0.0.0 area 0
+net 1.2.2.1 0.0.0.0 area 2
+net 1.4.4.1 0.0.0.0 area 4
+
+exi
+exi
+

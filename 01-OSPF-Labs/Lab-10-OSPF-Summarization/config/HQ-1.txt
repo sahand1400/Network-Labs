@@ -1,0 +1,70 @@
+=======================================================================
+Router: HQ-1
+Location: Headquarter
+Role: Core Router  
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname HQ-1
+!
+!! Interface IP Addresses
+
+interface Loopback1
+ ip address 172.20.10.1 255.255.255.0
+!
+interface Loopback2
+ ip address 172.20.20.1 255.255.255.0
+!
+interface Loopback3
+ ip address 172.20.30.1 255.255.255.0
+!
+interface Loopback4
+ ip address 172.20.40.1 255.255.255.0
+!
+interface Loopback5
+ ip address 172.20.50.1 255.255.255.0
+!
+interface Loopback6
+ ip address 172.20.60.1 255.255.255.0
+!
+interface Loopback7
+ ip address 172.20.70.1 255.255.255.0
+!
+interface Loopback8
+ ip address 172.20.80.1 255.255.255.0
+!
+interface FastEthernet0/0
+ ip address 1.0.0.1 255.255.255.252
+
+!
+interface FastEthernet1/1
+ ip address 1.10.10.1 255.255.255.252
+!
+interface Serial2/3
+ ip address 1.3.3.1 255.255.255.252
+ encapsulation ppp
+!
+
+
+
+!! OSPF Configuration 
+router ospf 1
+ area 0 range 172.20.0.0 255.255.0.0
+ network 1.0.0.1 0.0.0.0 area 0
+ network 1.1.1.1 0.0.0.0 area 1
+ network 1.3.3.1 0.0.0.0 area 3
+ network 1.10.10.1 0.0.0.0 area 10
+ network 172.20.0.0 0.0.255.255 area 0
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

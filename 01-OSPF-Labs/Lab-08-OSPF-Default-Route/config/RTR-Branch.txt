@@ -1,0 +1,37 @@
+=======================================================================
+Router: RTR-Branch
+Location: Branch
+Role: Branch 
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-Branch
+
+!! Interface IP Addresses
+ interface Ethernet0/0
+ ip address 192.168.3.2 255.255.255.252
+!
+interface Ethernet1/1
+ ip address 192.168.1.2 255.255.255.252
+!
+interface Ethernet1/2
+ bandwidth 2000
+ ip address 192.168.2.2 255.255.255.252
+!
+!! OSPF Configuration 
+router ospf 1
+ network 192.168.0.0 0.0.255.255 area 0
+!
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

@@ -1,0 +1,31 @@
+=======================================================================
+Router: Branch-2
+Location: Branch
+Role: Area 2  
+Create Date: 2026-05-08
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname Branch-2
+!
+!! Interface IP Addresses
+!
+interface FastEthernet1/1
+ ip address 1.2.2.2 255.255.255.252
+!
+!! OSPF Configuration 
+!
+router ospf 1
+ router-id 4.4.4.4
+ network 1.2.2.2 0.0.0.0 area 2
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf neighbor
+! show ip route ospf

@@ -1,0 +1,49 @@
+=======================================================================
+Switch: SW-Branch
+Location: Branch
+Role: Branch
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname SW-Branch
+!!Create Vlans
+vlan 10,20
+!
+!! Interface IP Addresses
+ interface Ethernet0/0
+ no switchport
+ ip address 192.168.3.1 255.255.255.252
+!
+interface Ethernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface Ethernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trun
+!
+interface Vlan10
+ ip address 172.16.10.1 255.255.255.0
+!
+interface Vlan20
+ ip address 172.16.20.1 255.255.255.0
+!
+!! OSPF Configuration
+router ospf 1
+ passive-interface Vlan10
+ passive-interface Vlan20
+ network 172.16.0.0 0.0.255.255 area 0
+ network 192.168.3.0 0.0.0.255 area 0
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

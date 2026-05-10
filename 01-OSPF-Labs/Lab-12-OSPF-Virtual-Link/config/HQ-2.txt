@@ -1,0 +1,32 @@
+=======================================================================
+Router: HQ-2
+Location: Headquarter
+Role: ABR Router  
+Create Date: 2026-05-08
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname HQ-2
+!
+!! Interface IP Addresses
+
+interface FastEthernet0/0
+ ip address 1.0.0.2 255.255.255.252
+
+!
+
+!! OSPF Configuration 
+router ospf 1
+ router-id 2.2.2.2
+ network 0.0.0.0 255.255.255.255 area 0
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf neighbor
+! show ip route ospf

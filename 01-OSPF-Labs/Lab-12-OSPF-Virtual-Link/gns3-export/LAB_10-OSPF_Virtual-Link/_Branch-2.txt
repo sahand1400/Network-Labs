@@ -1,0 +1,19 @@
+en
+conf t
+hostname Branch-2
+
+inter fa 1/1
+ip address 1.2.2.2 255.255.255.252
+no shut
+
+router ospf 1
+router-id 4.4.4.4
+net 1.2.2.2 0.0.0.0 area 2
+exi
+
+exi
+
+clear ip ospf proc
+y
+
+

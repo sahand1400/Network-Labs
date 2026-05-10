@@ -1,0 +1,54 @@
+=======================================================================
+Router: Branch
+Location: Branch
+Role:  Router  
+Create Date: 2026-05-08
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname HQ-1
+!
+!! Interface IP Addresses
+
+interface FastEthernet0/0
+ ip address 192.168.10.1 255.255.255.0
+ duplex full
+ ipv6 address FDAA:1111::1/64
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 ipv6 area 1
+ no keepalive
+
+!
+interface Serial2/2
+ ip address 2.2.2.2 255.255.255.252
+ encapsulation ppp
+ ipv6 address FDBB:2::2/64
+ ospfv3 authentication ipsec spi 512 sha1 1234567890123456789012345678901234567890
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 ipv6 area 1
+ serial restart-delay 0
+!
+
+!! OSPF Configuration 
+
+router ospfv3 1
+ !
+ address-family ipv4 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+ !
+ address-family ipv6 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+!
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf neighbor
+! show ip route ospf

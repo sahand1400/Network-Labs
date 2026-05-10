@@ -1,0 +1,53 @@
+HQ-1 IPv6 OSPF
+--------------
+ipv6 router ospf 2
+passive-interface fa 0/0
+
+inter fa 1/1
+ipv6 ospf 2 area 0
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter s 2/1
+ipv6 ospf 2 area 1
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter fa 0/0
+ipv6 ospf 2 area 0
+
+HQ-2 IPv6 OSPF 
+--------------
+ipv6 router ospf 2
+passive-interface fa 0/0
+
+inter fa 1/1
+ipv6 ospf 2 area 0
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter s 2/2
+ipv6 ospf 2 area 1
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter fa 0/0
+ipv6 ospf 2 area 0
+
+Branch IPv6 OSPF 
+----------------
+ipv6 router ospf 2
+passive-interface fa 0/0
+
+inter s 2/1
+ipv6 ospf 2 area 1
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter s 2/2
+ipv6 ospf 2 area 1
+ipv6 ospf hello-interval 60
+ipv6 ospf dead-interval 180
+
+inter fa 0/0
+ipv6 ospf 2 area 1

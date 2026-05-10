@@ -1,0 +1,27 @@
+en
+conf t
+hostname HQ-1
+
+ipv6 unicast-routing
+
+inter ser 2/1
+encap ppp
+ipv6 address FDBB:1::1/64
+ip address 1.1.1.1 255.255.255.252
+no shut
+exi
+
+inter fa 0/0
+ipv6 address FDAA:AAAA::1/64
+ip address 192.168.1.1 255.255.255.0
+no shut
+no keepalive
+exi
+
+inter fa 1/1
+ipv6 address FDBB:A::1/64
+ip address 3.3.3.1 255.255.255.252
+no shut
+exi
+
+exi

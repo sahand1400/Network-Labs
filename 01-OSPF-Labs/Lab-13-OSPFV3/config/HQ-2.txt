@@ -1,0 +1,62 @@
+=======================================================================
+Router: HQ-2
+Location: Headquarter
+Role: ABR Router  
+Create Date: 2026-05-08
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname HQ-1
+!
+!! Interface IP Addresses
+
+interface FastEthernet0/0
+ ip address 192.168.2.1 255.255.255.0
+ duplex full
+ ipv6 address FDAA:BBBB::1/64
+ ospfv3 1 ipv4 area 0
+ ospfv3 1 ipv6 area 0
+ no keepalive
+!
+interface FastEthernet1/1
+ ip address 3.3.3.2 255.255.255.252
+ speed auto
+ duplex auto
+ ipv6 address FDBB:A::2/64
+ ospfv3 1 ipv4 area 0
+ ospfv3 1 ipv6 area 0
+!
+
+interface Serial2/2
+ ip address 2.2.2.1 255.255.255.252
+ encapsulation ppp
+ ipv6 address FDBB:2::1/64
+ ospfv3 authentication ipsec spi 512 sha1 1234567890123456789012345678901234567890
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 ipv6 area 1
+!
+
+!! OSPF Configuration 
+
+ router ospfv3 1
+ !
+ address-family ipv4 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+ !
+ address-family ipv6 unicast
+  passive-interface FastEthernet0/0
+  area 0 range 2001:DB8::/65
+ exit-address-family
+
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf neighbor
+! show ip route ospf

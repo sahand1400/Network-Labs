@@ -2,18 +2,17 @@
 
 ## توضیح LAB
 ![pic LSA Type1](./topology/Lab-06-OSPF-LSA-Types.png)
-### در این لب روتینگ پروتکل OSPF راه اندازی شده است.HQ1وHQ2  روترهای ABR روترهای مرزی ما هستند و R4,R3,R10 روترهای ASBR هستند پون روت از دنیای بیرون Redistribute کرده اند.
 
----
-
+### در این لب روتینگ پروتکل OSPF راه اندازی شده است.HQ1وHQ2  روترهای ABR و روترهای مرزی ما هستند و R4,R3,R10 روترهای ASBR هستند چون روت از دنیای بیرون Redistribute کرده اند.
 
 ## LSA Type for ipv4 OSPF
 
 ## Type1:Router LSA
 
-### هر روتر یک عدد LSA Type 1 تولید می کند تا خودشو نو OSPF نشان دهد روترهای مرزی به تعداد ناحیه هایی که دارند بیش از یک عدد تولید می کنند تا موقعیت و شخصیت خودشو در هر AREA ای که دارند نشان بدهند.
+### هر روتر یک عدد LSA Type 1 تولید می کند تا خودشو تو OSPF نشان دهد روترهای مرزی به تعداد ناحیه هایی که دارند بیش از یک عدد تولید می کنند تا موقعیت و شخصیت خودشو در هر AREA ای که دارند نشان بدهند.
 ![pic LSA Type1](./topology/images/lsa_type1.png)
-###LSA Type1 از AREAها اجازه خروج ندارند پس در لب ما در AREA2 دو تا LSA Type1 داریم.
+
+### LSA Type1 از AREAها اجازه خروج ندارند پس در لب ما در AREA2 دو تا LSA Type1 داریم.
 
 ```cisco
 R2#sh ip os database
@@ -151,7 +150,7 @@ R10#sh ip ospf database network
 
 ## Type3:Summary LSA
 
-###ABR ها یعنی روترهایی که لبه مرز بین Area ها هستند LSA های Type1,2 را که در Area غیرصفرشون است را کانورت میکنند به Type3 و می اندازند به Area0 و به این LSA Type3 ها میگن Summary LSA
+### ABR ها یعنی روترهایی که لبه مرز بین Area ها هستند LSA های Type1,2 را که در Area غیرصفرشون است را کانورت میکنند به Type3 و می اندازند به Area0 و به این LSA Type3 ها میگن Summary LSA
 
 ### پس LSA Type3 توسط ABR ها و از روی LSAType1,2 ساخته میشود . زمانی که LSA Type3 میره و به دست ABR دیگه میرسه وظیفه این ABR این است که این LSA را دوباره Regenarate کند و خودشو به عنوان تولید کننده LSA مشخض کند و این LSA را به Area های دیگر منتقل میکند پس LSA type3 زمانی که به Area0 میاد آزادانه میتواند به Area های دیگر برود و در شبکه تو Propaket شوداین LSA type3 اطلاعات نقشه ای ندارد و آدرس هایی اند که در Area های دیگر اند.
 
@@ -216,7 +215,7 @@ R2#sh ip ospf database summary
 ### آدرس 10.56.1.0/24در Area56  بوده که این آدرس advertizeشده داخل Area0 و تبدیل به Type3 شده و بعد توسط R4  مجدداً Regenarete  شده و به سمت Area1234. از دید روتر هایی که در Area1234 انداین طور میبینند نقشه را که یک R4 وجود دارد که ABR لبه شان است و این آدرس دست این است .
 
 ## Type5:External LSA
-![pic LSA Type1](./topology/images/lsa_type1.png)
+![pic LSA Type1](./topology/images/lsa_type5.png)
 ### این LSA Type5 توسط ASBR ها ساخته میشوند و آدرس هاییEXternal ای هستند  که از دنیای بیرون redistribute شده اند تو OSPF. این LSA ها آزادانه به همه Area های داخل شبکه میتوانند بروند.
 
 ```cisco
@@ -346,4 +345,4 @@ R4#sh ip ospf database asbr-summary
 ## Type7:NSSA External
 ###  این LSA مخصوص Area هایی از نوع NSSA است. چون در این Area ها قراره LSA Type5 را نداشته باشیم ولی در این Area ما روترهایی داریم که ASBR است و ASBR به جای Type5 باید Type7 تولید کند و ABR این Type7 را تبدیل به type5 می کند و وقتی این type5 به ABR دیگر میرسد Type4 اش اونجا تولید میشود.
 ![pic LSA Type1](./topology/images/nssa_concept.png)
-### در اینجا یک آدرس external بوده که روتر R4 اونو Redistribute کرده و نوع Area اش NSSA بوده پس به جای LSA Ty pe5 یک LSA Type7 تولید میکند و این Type7 j تو ABR تبدیل به Type5 می شود و Type5 وارد Area0  میشود و زمانی که به ABR دیگه میرسد LSA type4 اونحا ساخته می شود و دگه این Type5,4 تو شبکه میرن جلو.
+### در اینجا یک آدرس external بوده که روتر R4 اونو Redistribute کرده و نوع Area اش NSSA بوده پس به جای LSA Type5 یک LSA Type7 تولید میکند و این Type7 تو ABR تبدیل به Type5 می شود و Type5 وارد Area0  میشود و زمانی که به ABR دیگه میرسد LSA type4 اونحا ساخته می شود و دیگه این Type5,4 تو شبکه میرن جلو.

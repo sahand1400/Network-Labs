@@ -1,0 +1,37 @@
+=======================================================================
+Router: Branch-1
+Location: Branch
+Role: Area 1,2  
+Create Date: 2026-05-08
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname Branch-1
+!
+!! Interface IP Addresses
+!
+interface FastEthernet1/1
+ ip address 1.2.2.1 255.255.255.252
+!
+interface Serial2/1
+ ip address 1.1.1.2 255.255.255.252
+ encapsulation ppp
+!
+!! OSPF Configuration 
+!
+router ospf 1
+ router-id 3.3.3.3
+ area 1 virtual-link 1.1.1.1
+ network 1.1.1.2 0.0.0.0 area 1
+ network 1.2.2.1 0.0.0.0 area 2
+!
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf neighbor
+! show ip route ospf

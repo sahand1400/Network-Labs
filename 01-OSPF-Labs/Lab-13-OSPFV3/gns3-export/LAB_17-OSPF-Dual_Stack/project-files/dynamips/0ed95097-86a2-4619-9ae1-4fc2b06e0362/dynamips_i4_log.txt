@@ -1,0 +1,41 @@
+May 10 17:28:33.179 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+May 10 17:28:33.181 HYPERVISOR: Started on IP = localhost, TCP port = 58792.
+May 10 17:28:33.631 HYPERVISOR: exec_cmd: hypervisor version 
+May 10 17:28:33.635 HYPERVISOR: exec_cmd: hypervisor working_dir G:\MyRepo\Network-Labs\01-OSPF-Labs\Lab-13-OSPFV3\gns3-export\LAB_17-OSPF-Dual_Stack\project-files\dynamips 
+May 10 17:28:33.637 GENERAL: working_dir=G:\MyRepo\Network-Labs\01-OSPF-Labs\Lab-13-OSPFV3\gns3-export\LAB_17-OSPF-Dual_Stack\project-files\dynamips
+May 10 17:28:33.637 HYPERVISOR: exec_cmd: hypervisor working_dir G:\MyRepo\Network-Labs\01-OSPF-Labs\Lab-13-OSPFV3\gns3-export\LAB_17-OSPF-Dual_Stack\project-files\dynamips\15609adb-0ce0-4f1c-bb0f-53910b9daee8 
+May 10 17:28:33.637 GENERAL: working_dir=G:\MyRepo\Network-Labs\01-OSPF-Labs\Lab-13-OSPFV3\gns3-export\LAB_17-OSPF-Dual_Stack\project-files\dynamips\15609adb-0ce0-4f1c-bb0f-53910b9daee8
+May 10 17:28:33.637 HYPERVISOR: exec_cmd: vm create HQ-1 2 c7200 
+May 10 17:28:33.648 VM: VM HQ-1 created.
+May 10 17:28:33.648 HYPERVISOR: exec_cmd: vm set_con_tcp_port HQ-1 5003 
+May 10 17:28:33.648 HYPERVISOR: exec_cmd: c7200 get_mac_addr HQ-1 
+May 10 17:28:33.648 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:33.655 HYPERVISOR: exec_cmd: vm slot_add_binding HQ-1 0 0 C7200-IO-FE 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm set_disk0 HQ-1 0 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm set_exec_area HQ-1 64 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm set_idle_pc HQ-1 0x6318687c 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm set_ios HQ-1 C:/Users/lotfi.MASKANAZ/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: c7200 set_mac_addr HQ-1 ca02.0ff0.0000 
+May 10 17:28:33.656 HYPERVISOR: exec_cmd: vm set_nvram HQ-1 512 
+May 10 17:28:33.663 HYPERVISOR: exec_cmd: vm set_ram HQ-1 512 
+May 10 17:28:33.663 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:33.663 HYPERVISOR: exec_cmd: vm slot_add_binding HQ-1 1 0 PA-2FE-TX 
+May 10 17:28:33.663 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:33.666 HYPERVISOR: exec_cmd: vm slot_add_binding HQ-1 2 0 PA-8T 
+May 10 17:28:33.666 HYPERVISOR: exec_cmd: vm set_con_tcp_port HQ-1 5003 
+May 10 17:28:34.809 HYPERVISOR: exec_cmd: nio create_udp udp-d5d7b668-d34d-4bac-a0b8-cc3027e1d26f 10020 127.0.0.1 10021 
+May 10 17:28:35.063 HYPERVISOR: exec_cmd: vm slot_add_nio_binding HQ-1 1 1 udp-d5d7b668-d34d-4bac-a0b8-cc3027e1d26f 
+May 10 17:28:35.063 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:35.352 HYPERVISOR: exec_cmd: nio create_udp udp-1037defe-edea-4769-bfdd-ce2db70d7ef9 10026 127.0.0.1 10027 
+May 10 17:28:35.359 HYPERVISOR: exec_cmd: vm slot_add_nio_binding HQ-1 2 1 udp-1037defe-edea-4769-bfdd-ce2db70d7ef9 
+May 10 17:28:35.359 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:40.936 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:40.938 HYPERVISOR: exec_cmd: vm extract_config HQ-1 
+May 10 17:28:41.088 HYPERVISOR: exec_cmd: vm get_status HQ-1 
+May 10 17:28:41.089 HYPERVISOR: exec_cmd: vm extract_config HQ-1 
+May 10 17:28:41.096 HYPERVISOR: exec_cmd: vm delete HQ-1 
+May 10 17:28:41.096 VM: VM HQ-1 destroyed.
+May 10 17:28:41.098 HYPERVISOR: exec_cmd: hypervisor stop 
+May 10 17:28:41.263 HYPERVISOR: Stopped.
+May 10 17:28:41.263 GENERAL: reset done.

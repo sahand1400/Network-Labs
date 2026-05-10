@@ -1,0 +1,45 @@
+=======================================================================
+Router: RTR-NAT
+Location: Headquarter
+Role: NAT Router 
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-NAT
+
+!! Interface IP Addresses
+interface Ethernet0/0
+ ip address 192.168.0.14 255.255.255.252
+ ip nat inside
+
+!
+interface Ethernet1/0
+ ip address 10.1.1.2 255.255.255.252
+ ip nat outside
+!
+!! OSPF Configuration 
+router ospf 1
+ network 192.168.0.0 0.0.255.255 area 0
+ default-information originate always metric 50 metric-type 1
+!
+ip nat pool PUBLIC-IP 213.218.10.0 213.218.10.7 netmask 255.255.255.248
+ip nat inside source list USERS pool PUBLIC-IP overload
+ip route 0.0.0.0 0.0.0.0 10.1.1.1
+!
+ip access-list standard USERS
+ permit 172.16.10.0 0.0.0.255
+ permit 172.16.20.0 0.0.0.255
+!
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

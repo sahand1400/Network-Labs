@@ -1,0 +1,35 @@
+=======================================================================
+Router: RTR-HQ-1
+Location: Headquarter
+Role: RTR-HQ-1 
+Create Date: 2026-05-07
+========================================================================
+
+!! --- CONFIGURATION START --- !!
+
+!! Hostname
+hostname RTR-HQ-1
+
+!! Interface IP Addresses
+ interface Ethernet0/0
+ ip address 192.168.0.9 255.255.255.252
+
+
+!
+interface Ethernet0/1
+ ip address 192.168.0.2 255.255.255.252
+!
+!! OSPF Configuration 
+router ospf 1
+ network 192.168.0.0 0.0.255.255 area 0
+!
+
+!! --- CONFIGURATION END --- !!
+
+!! Verification Commands (Optional)
+! show ip protocol
+! show ip ospf interface
+! show ip ospf interface brif
+! show ip ospf interface e1/1
+! show ip ospf neighbor
+! show ip route ospf

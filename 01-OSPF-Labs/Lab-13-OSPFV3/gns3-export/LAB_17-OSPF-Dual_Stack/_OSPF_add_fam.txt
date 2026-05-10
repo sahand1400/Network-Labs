@@ -1,0 +1,97 @@
+HQ-1 OSPF Address Family
+------------------------
+router ospfv3 1
+ router-id 1.1.1.1
+ 
+ address-family ipv4 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+ 
+ address-family ipv6 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+
+inter fa 1/1
+ ospfv3 1 ipv6 area 0
+ ospfv3 1 ipv4 area 0
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter ser 2/1
+ ospfv3 1 ipv6 area 1
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter fa 0/0
+ ospfv3 1 ipv6 area 0
+ ospfv3 1 ipv4 area 0
+
+
+HQ-2 OSPF Address Family
+------------------------
+router ospfv3 1
+ router-id 2.2.2.2
+ 
+ address-family ipv4 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+ 
+ address-family ipv6 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+
+inter fa 1/1
+ ospfv3 1 ipv6 area 0
+ ospfv3 1 ipv4 area 0
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter ser 2/2
+ ospfv3 1 ipv6 area 1
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter fa 0/0
+ ospfv3 1 ipv6 area 0
+ ospfv3 1 ipv4 area 0
+
+
+Branch OSPF Address Family
+--------------------------
+router ospfv3 1
+ router-id 3.3.3.3
+ 
+ address-family ipv4 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+ 
+ address-family ipv6 unicast
+  passive-interface FastEthernet0/0
+ exit-address-family
+
+inter ser 2/1
+ ospfv3 1 ipv6 area 1
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter ser 2/2
+ ospfv3 1 ipv6 area 1
+ ospfv3 1 ipv4 area 1
+ ospfv3 1 hello-interval 60
+ ospfv3 1 dead-interval 180
+
+inter fa 0/0
+ ospfv3 1 ipv6 area 1
+ ospfv3 1 ipv4 area 1
+
+
+show commands
+-------------
+
+ show ospfv3 neighbor
+ show ospfv3 inter brief
+ show ospfv3 database
+ show ip route ospfv3
